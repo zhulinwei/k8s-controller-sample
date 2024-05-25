@@ -19,7 +19,7 @@ spec:
   - additionalPrinterColumns:
     - jsonPath: .spec.replicas
       name: Replicas
-      type: int
+      type: integer
     name: v1
     schema:
       openAPIV3Schema:
