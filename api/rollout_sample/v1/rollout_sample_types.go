@@ -6,7 +6,7 @@ import (
 
 // These const variables are used in our custom controller.
 const (
-	GroupName string = "sample.zlw.com"
+	GroupName string = "zlw.com"
 	Version   string = "v1"
 	//Plural    string = "samples"
 	//Singluar  string = "sample"
@@ -14,39 +14,42 @@ const (
 	//Name      string = Plural + "." + GroupName
 )
 
-// Sample is a specification for a Sample resource
+// RolloutSample is a specification for a RolloutSample resource
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Namespaced,shortName=demo
 // +kubebuilder:printcolumn:name="Replicas",type=int,JSONPath=`.spec.replicas`
-type Sample struct {
+type RolloutSample struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   SampleSpec   `json:"spec"`
-	Status SampleStatus `json:"status"`
+	Spec   RolloutSampleSpec   `json:"spec"`
+	Status RolloutSampleStatus `json:"status"`
 }
 
-// SampleSpec is the spec for a Foo resource
-type SampleSpec struct {
-	// +kubebuilder:validation:Maximum=1
-	// +kubebuilder:validation:Maximum=15
-	Replicas *int32 `json:"replicas"`
+// RolloutSampleSpec is the spec for a Foo resource
+type RolloutSampleSpec struct {
 	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:validation:MaxLength=15
-	DeploymentName string `json:"deploymentName"`
+	// +kubebuilder:validation:MaxLength=30
+	Name string `json:"name"`
+	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:MaxLength=100
+	Image string `json:"image"`
+	// +kubebuilder:validation:Maximum=1
+	// +kubebuilder:validation:Maximum=100
+	Replicas *int32 `json:"replicas"`
 }
 
-// SampleStatus is the status for a Sample resource
-type SampleStatus struct {
+// RolloutSampleStatus is the status for a RolloutSample resource
+type RolloutSampleStatus struct {
 	AvailableReplicas int32 `json:"availableReplicas"`
 }
 
-// SampleList is a list of Sample resources
+// RolloutSampleList is a list of RolloutSample resources
 // +kubebuilder:object:root=true
-type SampleList struct {
+type RolloutSampleList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata"`
 
-	Items []Sample `json:"items"`
+	Items []RolloutSample `json:"items"`
 }
