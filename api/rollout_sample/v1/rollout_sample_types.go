@@ -8,18 +8,12 @@ import (
 const (
 	GroupName string = "zlw.com"
 	Version   string = "v1"
-	//Plural    string = "samples"
-	//Singluar  string = "sample"
-	//ShortName string = "sample"
-	//Name      string = Plural + "." + GroupName
 )
 
 // RolloutSample is a specification for a RolloutSample resource
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Namespaced,shortName=rollout
-// +kubebuilder:printcolumn:name="Namespace",type=string,JSONPath=`.metadata.namespace`
-// +kubebuilder:printcolumn:name="Name",type=string,JSONPath=`.metadata.name`
 // +kubebuilder:printcolumn:name="Replicas",type=integer,JSONPath=`.spec.replicas`
 type RolloutSample struct {
 	metav1.TypeMeta   `json:",inline"`
