@@ -17,13 +17,14 @@ const (
 // RolloutSample is a specification for a RolloutSample resource
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
-// +kubebuilder:resource:scope=Namespaced,shortName=demo
+// +kubebuilder:resource:scope=Namespaced,shortName=rollout
 // +kubebuilder:printcolumn:name="Replicas",type=int,JSONPath=`.spec.replicas`
 type RolloutSample struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
 	Spec   RolloutSampleSpec   `json:"spec"`
+	// +optional
 	Status RolloutSampleStatus `json:"status"`
 }
 
