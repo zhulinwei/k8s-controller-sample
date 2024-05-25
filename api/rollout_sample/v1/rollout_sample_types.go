@@ -18,6 +18,8 @@ const (
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Namespaced,shortName=rollout
+// +kubebuilder:printcolumn:name="Namespace",type=string,JSONPath=`.metadata.namespace`
+// +kubebuilder:printcolumn:name="Name",type=string,JSONPath=`.metadata.name`
 // +kubebuilder:printcolumn:name="Replicas",type=integer,JSONPath=`.spec.replicas`
 type RolloutSample struct {
 	metav1.TypeMeta   `json:",inline"`
