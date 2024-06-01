@@ -1,0 +1,54 @@
+# crd.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  # 名字格式：<名称的复数形式>.<组名>
+  name: rolloutsamples.zlw.com
+spec:
+  # 组名称，用于 RESTAPI: /apis/<组>/<版本>
+  group: zlw.com
+  names:
+    # 资源类型
+    kind: RolloutSample
+    # 资源列表类型
+    listKind: RolloutSampleList
+    # 资源名称的复数形式
+    plural: rolloutsamples
+    # 资源名称的单数形式
+    singular: rolloutsample
+  # 资源作用域，可以是命名空间级别 Namespaced，也可以是集群级别 Cluster
+  scope: Namespaced
+  versions:
+    - name: v1
+      schema:
+        openAPIV3Schema:
+          description: RolloutSample is a specification for a RolloutSample resource
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: RolloutSampleSpec is the spec for a RolloutSample resource
+              properties:
+                image:
+                  type: string
+                name:
+                  type: string
+                replicas:
+                  format: int32
+                  type: integer
+              required:
+                - image
+                - name
+                - replicas
+              type: object
+          required:
+            - spec
+          type: object
+      # 每个版本都可以通过 served 标志来独立启用或禁止
+      served: true
+      # 其中一个且只有一个版本必需被标记为存储版本
+      storage: true
