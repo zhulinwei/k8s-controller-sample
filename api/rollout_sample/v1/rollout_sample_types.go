@@ -4,12 +4,6 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// These const variables are used in our custom controller.
-const (
-	GroupName string = "zlw.com"
-	Version   string = "v1"
-)
-
 // RolloutSample is a specification for a RolloutSample resource
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
