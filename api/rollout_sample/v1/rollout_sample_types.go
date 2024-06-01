@@ -4,6 +4,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+// These const variables are used in our custom controller.
+const (
+	GroupName string = "zlw.com"
+	Version   string = "v1"
+)
+
 // RolloutSample is a specification for a RolloutSample resource
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
@@ -15,7 +21,7 @@ type RolloutSample struct {
 
 	Spec RolloutSampleSpec `json:"spec"`
 	// +optional
-	Status SampleStatus `json:"status"`
+	Status RolloutSampleStatus `json:"status"`
 }
 
 // RolloutSampleSpec is the spec for a Foo resource
@@ -33,8 +39,8 @@ type RolloutSampleSpec struct {
 	Replicas *int32 `json:"replicas"`
 }
 
-// SampleStatus is the status for a RolloutSample resource
-type SampleStatus struct {
+// RolloutSampleStatus is the status for a RolloutSample resource
+type RolloutSampleStatus struct {
 	AvailableReplicas int32 `json:"availableReplicas"`
 }
 

@@ -5,6 +5,11 @@ github.com/davecgh/go-spew/spew
 ## explicit; go 1.13
 github.com/emicklei/go-restful/v3
 github.com/emicklei/go-restful/v3/log
+<<<<<<< HEAD
+=======
+# github.com/evanphx/json-patch v4.12.0+incompatible
+## explicit
+>>>>>>> e4ca02b057d728ba55a0a2c505c318fa5600fa21
 # github.com/go-logr/logr v1.4.1
 ## explicit; go 1.18
 github.com/go-logr/logr
@@ -36,6 +41,11 @@ github.com/google/gnostic-models/extensions
 github.com/google/gnostic-models/jsonschema
 github.com/google/gnostic-models/openapiv2
 github.com/google/gnostic-models/openapiv3
+<<<<<<< HEAD
+=======
+# github.com/google/go-cmp v0.6.0
+## explicit; go 1.13
+>>>>>>> e4ca02b057d728ba55a0a2c505c318fa5600fa21
 # github.com/google/gofuzz v1.2.0
 ## explicit; go 1.12
 github.com/google/gofuzz
@@ -66,6 +76,11 @@ github.com/modern-go/reflect2
 # github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
 ## explicit
 github.com/munnerz/goautoneg
+<<<<<<< HEAD
+=======
+# github.com/pkg/errors v0.9.1
+## explicit
+>>>>>>> e4ca02b057d728ba55a0a2c505c318fa5600fa21
 # github.com/spf13/pflag v1.0.5
 ## explicit; go 1.12
 github.com/spf13/pflag
@@ -324,7 +339,10 @@ k8s.io/client-go/applyconfigurations/storage/v1
 k8s.io/client-go/applyconfigurations/storage/v1alpha1
 k8s.io/client-go/applyconfigurations/storage/v1beta1
 k8s.io/client-go/discovery
+<<<<<<< HEAD
 k8s.io/client-go/dynamic
+=======
+>>>>>>> e4ca02b057d728ba55a0a2c505c318fa5600fa21
 k8s.io/client-go/kubernetes
 k8s.io/client-go/kubernetes/scheme
 k8s.io/client-go/kubernetes/typed/admissionregistration/v1

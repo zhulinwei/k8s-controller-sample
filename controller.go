@@ -10,7 +10,11 @@ package main
 //	"k8s.io/klog/v2"
 //	"time"
 //)
+<<<<<<< HEAD
 
+=======
+//
+>>>>>>> e4ca02b057d728ba55a0a2c505c318fa5600fa21
 //type Controller struct {
 //	kubeClient   kubernetes.Interface
 //	sampleClient clientset.Interface
