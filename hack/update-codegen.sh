@@ -11,9 +11,9 @@ source "${CODEGEN_PKG}/kube_codegen.sh"
 
 THIS_PKG="k8s-controller-sample"
 
-#kube::codegen::gen_helpers \
-#    --boilerplate "${SCRIPT_ROOT}/hack/boilerplate.go.txt" \
-#    "${SCRIPT_ROOT}/api"
+kube::codegen::gen_helpers \
+    --boilerplate "${SCRIPT_ROOT}/hack/boilerplate.go.txt" \
+    "${SCRIPT_ROOT}/api"
 
 kube::codegen::gen_client \
     --with-watch \
