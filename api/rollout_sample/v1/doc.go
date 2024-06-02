@@ -16,5 +16,6 @@ limitations under the License.
 
 // +k8s:deepcopy-gen=package
 // +groupName=zlw.com
+// +kubebuilder:object:generate=true
 
 package v1
