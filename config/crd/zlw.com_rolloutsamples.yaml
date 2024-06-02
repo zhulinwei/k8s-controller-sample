@@ -1,65 +1,9 @@
-<<<<<<< HEAD
-# crd.yaml
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  # 名字格式：<名称的复数形式>.<组名>
-  name: rolloutsamples.zlw.com
-spec:
-  # 组名称，用于 RESTAPI: /apis/<组>/<版本>
-  group: zlw.com
-  names:
-    # 资源类型
-    kind: RolloutSample
-    # 资源列表类型
-    listKind: RolloutSampleList
-    # 资源名称的复数形式
-    plural: rolloutsamples
-    # 资源名称的单数形式
-    singular: rolloutsample
-  # 资源作用域，可以是命名空间级别 Namespaced，也可以是集群级别 Cluster
-  scope: Namespaced
-  versions:
-    - name: v1
-      schema:
-        openAPIV3Schema:
-          description: RolloutSample is a specification for a RolloutSample resource
-          properties:
-            apiVersion:
-              type: string
-            kind:
-              type: string
-            metadata:
-              type: object
-            spec:
-              description: RolloutSampleSpec is the spec for a RolloutSample resource
-              properties:
-                image:
-                  type: string
-                name:
-                  type: string
-                replicas:
-                  format: int32
-                  type: integer
-              required:
-                - image
-                - name
-                - replicas
-              type: object
-          required:
-            - spec
-          type: object
-      # 每个版本都可以通过 served 标志来独立启用或禁止
-      served: true
-      # 其中一个且只有一个版本必需被标记为存储版本
-      storage: true
-=======
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.12.0
+    controller-gen.kubebuilder.io/version: v0.14.0
   name: rolloutsamples.zlw.com
 spec:
   group: zlw.com
@@ -82,14 +26,19 @@ spec:
         description: RolloutSample is a specification for a RolloutSample resource
         properties:
           apiVersion:
-            description: 'APIVersion defines the versioned schema of this representation
-              of an object. Servers should convert recognized schemas to the latest
-              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
             type: string
           kind:
-            description: 'Kind is a string value representing the REST resource this
-              object represents. Servers may infer this from the endpoint the client
-              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
             type: string
           metadata:
             type: object
@@ -106,7 +55,7 @@ spec:
                 type: string
               replicas:
                 format: int32
-                maximum: 100
+                maximum: 30
                 type: integer
             required:
             - image
@@ -114,7 +63,7 @@ spec:
             - replicas
             type: object
           status:
-            description: RolloutSampleStatus is the status for a RolloutSample resource
+            description: SampleStatus is the status for a RolloutSample resource
             properties:
               availableReplicas:
                 format: int32
@@ -129,4 +78,3 @@ spec:
     storage: true
     subresources:
       status: {}
->>>>>>> e4ca02b057d728ba55a0a2c505c318fa5600fa21

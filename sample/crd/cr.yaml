@@ -1,8 +1,0 @@
-apiVersion: zlw.com/v1
-kind: RolloutSample
-metadata:
-  name: demo
-spec:
-  name: app_name
-  image: nginx:latest
-  replicas: 15
