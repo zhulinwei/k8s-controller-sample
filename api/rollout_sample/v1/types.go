@@ -21,17 +21,16 @@ import (
 )
 
 // RolloutSample is a specification for a RolloutSample resource
-// +genclient
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Namespaced,shortName=rollout
 // +kubebuilder:printcolumn:name="Replicas",type=integer,JSONPath=`.spec.replicas`
-// +kubebuilder:object:root=true
+
 type RolloutSample struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
+	// +optional
 	Spec RolloutSampleSpec `json:"spec"`
 	// +optional
 	Status SampleStatus `json:"status"`
@@ -58,7 +57,6 @@ type SampleStatus struct {
 }
 
 // RolloutSampleList is a list of RolloutSample resources
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
 type RolloutSampleList struct {
 	metav1.TypeMeta `json:",inline"`

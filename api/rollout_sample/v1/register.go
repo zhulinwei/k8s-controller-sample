@@ -24,13 +24,13 @@ import (
 
 // SchemeGroupVersion is group version used to register these objects
 var SchemeGroupVersion = schema.GroupVersion{
-	Group: "zlw.com",
+	Group:   "zlw.com",
 	Version: "v1",
 }
 
 var SchemeGroupVersionResource = schema.GroupVersionResource{
 	Group:    SchemeGroupVersion.Group,
-	Version: SchemeGroupVersion.Version,
+	Version:  SchemeGroupVersion.Version,
 	Resource: "rolloutsamples",
 }
 

@@ -23,7 +23,6 @@ spec:
     name: v1
     schema:
       openAPIV3Schema:
-        description: RolloutSample is a specification for a RolloutSample resource
         properties:
           apiVersion:
             description: |-
