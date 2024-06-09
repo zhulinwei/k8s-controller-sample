@@ -3,9 +3,9 @@ module k8s-controller-sample
 go 1.22.0
 
 require (
-	k8s.io/apimachinery v0.29.0
+	k8s.io/apimachinery v0.30.0
 	k8s.io/client-go v0.29.0
-	k8s.io/code-generator v0.29.0
+	k8s.io/code-generator v0.30.0
 )
 
 require (
