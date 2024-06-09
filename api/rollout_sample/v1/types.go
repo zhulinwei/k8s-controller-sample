@@ -20,6 +20,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+// +genclient
+
 // RolloutSample is a specification for a RolloutSample resource
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
