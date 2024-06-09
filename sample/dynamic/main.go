@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	samplev1 "k8s-controller-sample/api/rollout_sample/v1"
+
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
@@ -11,12 +11,12 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 )
 
-func init () {
+func init() {
 	scheme := runtime.NewScheme()
 	utilruntime.Must(samplev1.AddToScheme(scheme))
 }
 
-func main () {
+func main() {
 	restConfig, err := clientcmd.BuildConfigFromFlags("", clientcmd.RecommendedHomeFile)
 	if err != nil {
 		return
@@ -27,13 +27,14 @@ func main () {
 		return
 	}
 
-	unstructuredObj, err := dynamicClient.Resource(samplev1.SchemeGroupVersionResource).Namespace("default").List(context.Background(), v1.ListOptions{})
-
-	b, _ := json.Marshal(unstructuredObj)
-	println(string(b))
+	obj, err := dynamicClient.Resource(samplev1.SchemeGroupVersionResource).Namespace("default").List(context.Background(), v1.ListOptions{})
+	if err != nil {
+		println(err.Error())
+		return
+	}
 
 	var list = &samplev1.RolloutSampleList{}
-	err = runtime.DefaultUnstructuredConverter.FromUnstructured(unstructuredObj.UnstructuredContent(), &list)
+	err = runtime.DefaultUnstructuredConverter.FromUnstructured(obj.UnstructuredContent(), &list)
 	if err != nil {
 		return
 	}
